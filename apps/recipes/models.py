@@ -20,4 +20,14 @@ class Recipe(models.Model):
 
 
 
+class Review(models.Model):
+    recipe = models.ForeignKey(Recipe)
+    title = models.CharField (max_length=30)
+    reviews = models.TextField(help_text="User review here.")
+    star = models.PositiveIntegerField(blank=True, null=True)
+    username = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
 
