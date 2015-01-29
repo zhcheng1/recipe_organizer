@@ -3,12 +3,11 @@
 from rest_framework import serializers
 from models import *
 
+
 class IngredientSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Ingredient
-
-
 
 
 class RecipeSerializer(serializers.ModelSerializer):
@@ -22,6 +21,7 @@ class RecipeSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         ingredients_data = validated_data.pop('ingredients')
         recipe = Recipe.objects.create(**validated_data)
+
         for ingredient_data in ingredients_data:
             try:
                 ingredient = Ingredient.objects.get(name=ingredient_data["name"])
@@ -32,7 +32,8 @@ class RecipeSerializer(serializers.ModelSerializer):
         return recipe
 
     def get_reviews(self, obj):
-        serializer = ReviewSerializer(Review.objects.filter(recipe=obj.id), many=True)
+        reviews = Review.objects.filter(recipe_id=obj.id)
+        serializer = ReviewSerializer(reviews, many=True)
         return serializer.data
 
 
@@ -40,3 +41,7 @@ class ReviewSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Review
+
+
+
+
