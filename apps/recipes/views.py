@@ -21,6 +21,6 @@ class IngredientList(generics.ListAPIView):
     serializer_class = IngredientSerializer
     queryset = Ingredient.objects.all()
 
-class ReviewList(generics.RetrieveUpdateDestroyAPIView):
+class AddReview(generics.CreateAPIView):
     serializer_class = ReviewSerializer
     queryset = Review.objects.all()
