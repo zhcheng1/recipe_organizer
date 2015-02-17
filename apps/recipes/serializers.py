@@ -42,6 +42,7 @@ class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
 
-
+    def create(self, validated_data):
+        return Review.objects.create(**validated_data)
 
 
