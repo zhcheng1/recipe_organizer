@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics
 from serializers import *
-from rest_framework.decorators import api_view
 
 
 class RecipeList(generics.ListAPIView):
@@ -14,18 +13,9 @@ class RecipeDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Recipe.objects.all()
 
 
-# class AddRecipe(generics.CreateAPIView):
-#     serializer_class = RecipeSerializer
-#     queryset = Recipe.objects.all()
-
-
-@api_view(['GET', 'POST'])
-def AddRecipe(request):
-    file = request.DATA
-    if file:
-        print "oo"
-    else:
-        print "what"
+class AddRecipe(generics.CreateAPIView):
+    serializer_class = RecipeSerializer
+    queryset = Recipe.objects.all()
 
 
 class IngredientList(generics.ListAPIView):
