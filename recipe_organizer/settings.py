@@ -61,6 +61,16 @@ MEDIA_ROOT = 'apps/media'
 
 MEDIA_URL = '/media/'
 
+#for emails
+EMAIL_USE_TLS = True
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = 'czqapply@gmail.com'
+EMAIL_HOST_PASSWORD = "apply2011"
+EMAIL_PORT = 587
+
+#need to change Google settings
+#https://www.google.com/settings/u/1/security/lesssecureapps
+
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 

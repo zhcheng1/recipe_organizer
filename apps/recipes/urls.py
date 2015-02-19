@@ -11,6 +11,8 @@ urlpatterns = patterns(
 
     url(r'^add-recipe/$', AddRecipe.as_view(), name='add-recipe'),
 
+    url(r'^send-email/$', SendEmail),
+
     url(r'^add-review/$', AddReview.as_view(), name='review-list'),
     url(r'^review/(?P<pk>[0-9]+)$', UpdateReview.as_view(), name='review-list'),
     # Handling media files
