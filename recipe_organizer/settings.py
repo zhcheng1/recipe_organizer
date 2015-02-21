@@ -48,9 +48,9 @@ MIDDLEWARE_CLASSES = (
     'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+   # 'django.middleware.csrf.CsrfViewMiddleware',
+   # 'django.contrib.auth.middleware.AuthenticationMiddleware',
+   # 'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -61,7 +61,7 @@ WSGI_APPLICATION = 'recipe_organizer.wsgi.application'
 
 MEDIA_ROOT = BASE_DIR + '/media'
 
-MEDIA_URL = '/media/'
+MEDIA_URL = '/api/media/'
 
 #for emails
 EMAIL_USE_TLS = True
@@ -109,3 +109,7 @@ CORS_ORIGIN_WHITELIST = (
 )
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+REST_FRAMEWORK = {
+'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny',),
+}
