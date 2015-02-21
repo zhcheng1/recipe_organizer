@@ -20,9 +20,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = ')y5c-+jvrp3ya60n=89ivv1sv5lh!e-t8%m2@r2gnzrr^of6+a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -57,7 +57,7 @@ ROOT_URLCONF = 'recipe_organizer.urls'
 
 WSGI_APPLICATION = 'recipe_organizer.wsgi.application'
 
-MEDIA_ROOT = 'apps/media'
+MEDIA_ROOT = BASE_DIR + '/media'
 
 MEDIA_URL = '/media/'
 
@@ -65,7 +65,7 @@ MEDIA_URL = '/media/'
 EMAIL_USE_TLS = True
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = 'czqapply@gmail.com'
-EMAIL_HOST_PASSWORD = "apply2011"
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_PASSWORD']
 EMAIL_PORT = 587
 
 #need to change Google settings
