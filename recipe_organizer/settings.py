@@ -57,7 +57,7 @@ ROOT_URLCONF = 'recipe_organizer.urls'
 
 WSGI_APPLICATION = 'recipe_organizer.wsgi.application'
 
-MEDIA_ROOT = 'apps/media'
+MEDIA_ROOT = BASE_DIR + '/media'
 
 MEDIA_URL = '/media/'
 
@@ -65,7 +65,7 @@ MEDIA_URL = '/media/'
 EMAIL_USE_TLS = True
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = 'czqapply@gmail.com'
-EMAIL_HOST_PASSWORD = "apply2011"
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_PASSWORD']
 EMAIL_PORT = 587
 
 #need to change Google settings
@@ -102,7 +102,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CORS_ORIGIN_WHITELIST = (
-    'localhost:8000',
+    'localhost:8001',
     'localhost/',
 )
 
